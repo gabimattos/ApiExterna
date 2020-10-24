@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ApiExternas"
+    }
+  },
+  "defaultProject": "ApiExternas",
+  "cli": {
+    "analytics": "032bc7ef-2a85-414e-8a44-987e554f0bae"
+  }
 }
