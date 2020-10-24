@@ -7,12 +7,21 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class AuthService {
 
-  apiUrl:string ='https://thecatapi.com/';
+  httpHeaders: any = {
+    headers: {
+      'Content-type': 'application/json',
+      'Accept': 'application/json'
+    }
+  }
+
+  //apiUrl:string ='https://thecatapi.com/';
 
   constructor(public http: HttpClient ) { }
 
-    public register(): Observable<any>{
-      return this.http.get('${this.apiUrl}');
-    }
+  getCatImage(): Observable<any> {
+    this.httpHeaders.headers['x-api-key']= "0536560e-8005-417d-8dc7-db228661ba15";
+    return this.http.get('https://api.thecatapi.com/v1/images/search', this.httpHeaders);
+  }
+  
   }
 

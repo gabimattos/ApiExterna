@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from "../auth.service";
 
 @Component({
   selector: 'app-index',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-  constructor() { }
+  catImage;
+
+  constructor(public authService: AuthService) { }
 
   ngOnInit(): void {
+
+    this.getCatImage();
+  }
+
+  getCatImage(){
+    this.authService.getCatImage().subscribe(
+      (res) => {
+        console.log(res);
+      this.catImage = res[0].url;
+    });
   }
 
 }
